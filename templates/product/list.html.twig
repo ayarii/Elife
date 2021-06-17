@@ -1,0 +1,24 @@
+<h1>liste des produits</h1>
+x= {{ value1 }}
+y= {{ value2 }}
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    A dicta, doloribus eveniet nesciunt nisi nulla officiis quam,
+    quas quidem quod quos ratione, repudiandae saepe sint
+    sunt temporibus ullam voluptatibus voluptatum?</p>
+{% set z= 100 %}
+{{ z }}
+
+
+<h1>la liste des formation</h1>
+{% if  listFormation is empty %}
+<h3>Pas de formation</h3>
+{% else %}
+{% for x in listFormation %}
+{{ x.ref }}
+    {{ x.Titre|upper }}
+    {{ x.Description }}
+    <br>
+{% endfor %}
+{% endif %}
+
+Le nombre de formation est : {{ listFormation|length }}
