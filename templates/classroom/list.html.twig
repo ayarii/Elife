@@ -1,0 +1,30 @@
+<h1>La liste des classes</h1>
+{% if  classrooms is empty%}
+<h1>Pas de classe</h1>
+{% else %}
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>name</td>
+        <td>description</td>
+        <td>nbrOfStudents</td>
+        <td>Date de création</td>
+        <td>Action</td>
+    </tr>
+{% for i in classrooms %}
+    <tr>
+        <td>{{ i.id }}</td>
+        <td>{{ i.name|upper }}</td>
+        <td>{{ i.description }}</td>
+        <td> {{ i.nbrOfStudents }}</td>
+        <td> {{ i.createdAt|date('y-m-d,h-m-s') }}</td>
+        <td>
+            <a href="{{ path('updateClassroom',{'id':i.id}) }}">Modifier</a>
+            <a href="{{path('removeClassroom',{'id':i.id}) }}">Supprimer</a>
+        </td>
+    </tr>
+{% endfor %}
+</table>
+{% endif %}
+<h3>Nbr de classe: {{ classrooms|length }}</h3>
+<a href="{{ path('addClassroom') }}">Ajouter une classe</a>
