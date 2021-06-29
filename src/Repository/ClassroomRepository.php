@@ -47,4 +47,11 @@ class ClassroomRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function listOfClassRoomByName()
+    {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery('SELECT p FROM App\Entity\Classroom p ORDER BY p.id DESC ');
+        return $query->getResult();
+    }
 }

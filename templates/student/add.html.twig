@@ -4,6 +4,7 @@
 {#Afficher un formulaire dans Twig#}
 {{ form(formStudent) }}
 <h1>La liste des étudiants</h1>
+{{ form(searchStudent) }}
 <table border="1">
     <tr>
         <th>NCE</th>
@@ -16,7 +17,7 @@
             <td>{{ student.nce }}</td>
             <td>{{ student.FirstName }}</td>
             <td>{{ student.lastName }}</td>
-            <td>{{ student.classroom }}</td>
+            <td>{{ student.classroom.name }}</td>
         </tr>
     {% endfor %}
 </table>

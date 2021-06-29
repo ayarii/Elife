@@ -39,9 +39,12 @@ class ClassroomController extends AbstractController
      */
     public function list(ClassroomRepository $classroomRepository)
     {
-        $classrooms = $classroomRepository->findAll();
         //  $listClassroom= $this->getDoctrine()->getRepository(Classroom::class)->findAll();
-        return $this->render("classroom/list.html.twig", array("classrooms" => $classrooms));
+        $classrooms = $classroomRepository->findAll();
+        //la liste des classes ordonnée par Id DESC
+        $listClassroom= $classroomRepository->listOfClassRoomByName();
+
+        return $this->render("classroom/list.html.twig", array("listClassroom"=>$listClassroom,"classrooms" => $classrooms));
     }
 
     /**

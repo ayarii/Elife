@@ -47,4 +47,36 @@ class StudentRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function listOfStudentOrderByName()
+    {
+        $query = $this->createQueryBuilder('s')
+            ->andWhere('s.firstName = :val')
+            ->andWhere('s.lastName= :val2')
+            ->setParameter('val', "Mohamed")
+            ->setParameter('val2', "Ayari")
+            ->orderBy('s.nce', 'DESC')
+            ->setMaxResults(10)
+            ->getQuery();
+        return $query->getResult();
+    }
+
+    public function listStudent()
+    {
+        $query = $this->createQueryBuilder('s')
+            ->where('s.firstName LIKE :val')
+            ->setParameter('val', 'M%')
+            #  ->setParameter('val','%M')
+            #  ->setParameter('val','%M%')
+            ->getQuery();
+        return $query->getResult();
+    }
+
+   public function searchStudent($nce){
+        $query= $this->createQueryBuilder('s')
+            ->where('s.nce LIKE :val')
+        ->setParameter('val',$nce)
+            ->getQuery();
+        return $query->getResult();
+   }
 }
