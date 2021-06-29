@@ -1,0 +1,22 @@
+<h1>Ajouter une classe</h1>
+{{ form(formClassroom) }}
+<h1>Ajouter un étudiant</h1>
+{#Afficher un formulaire dans Twig#}
+{{ form(formStudent) }}
+<h1>La liste des étudiants</h1>
+<table border="1">
+    <tr>
+        <th>NCE</th>
+        <th>FirstName</th>
+        <th>lastName</th>
+        <th>Classroom</th>
+    </tr>
+        {% for student in students %}
+        <tr>
+            <td>{{ student.nce }}</td>
+            <td>{{ student.FirstName }}</td>
+            <td>{{ student.lastName }}</td>
+            <td>{{ student.classroom }}</td>
+        </tr>
+    {% endfor %}
+</table>

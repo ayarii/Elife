@@ -1,0 +1,9 @@
+<h1>Modifier un étudiant</h1>
+{#{{ form(formStudent) }}#}
+
+{{ form_start(formStudent) }}
+{{ form_row(formStudent.nce, { 'attr':{'disabled':'disabled'} }) }}
+{{ form_row(formStudent.firstName) }}
+{{ form_row(formStudent.lastName) }}
+{{ form_row(formStudent.classroom) }}
+{{ form_end(formStudent) }}
